@@ -7,6 +7,7 @@ import { IoWarning } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 
 import { addUser } from "../utils/userSlice";
+import { USER_URL } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm , setIsSignInForm] = useState<boolean>(true);
@@ -35,7 +36,7 @@ const Login = () => {
             const user = userCredential.user;
             console.log(user);
             updateProfile(user, {
-              displayName: name?.current?.value, photoURL: "https://avatars.githubusercontent.com/u/120197265?v=4"
+              displayName: name?.current?.value, photoURL: USER_URL
             }).then(() => {
               const { uid, email, displayName, photoURL } = user;
               dispatch(addUser({ uid, email, displayName, photoURL }));
