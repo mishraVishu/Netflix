@@ -8,7 +8,7 @@ interface VideoTitleProps {
 
 const VideoTitle = ({ title, overview }: VideoTitleProps) => {
   return (
-    <div className="w-screen aspect-video pt-[15%] px-[5%] text-white bg-gradient-to-r from-black absolute">
+    <div className="w-screen aspect-video pt-[11%] px-[5%] text-white bg-gradient-to-r from-black absolute">
         <h1 className="text-9xl font-serif text-white mb-2">{title}</h1>
         <h2 className="w-1/2 mb-2 text-lg text-white tracking-wider">{overview}</h2>
         <div className="flex gap-2">
@@ -19,4 +19,4 @@ const VideoTitle = ({ title, overview }: VideoTitleProps) => {
   )
 }
 
-export default VideoTitle
+export default VideoTitle;

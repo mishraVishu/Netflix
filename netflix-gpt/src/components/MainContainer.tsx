@@ -4,12 +4,13 @@ import VideoBackground from "./VideoBackground";
 
 interface RootMovies {
     movies: {
-        nowPlayingMovies: any[] // Use a more specific type if available, e.g., Movie[]
+        nowPlayingMovies: any[],
+        popularMovies: any[] // Use a more specific type if available, e.g., Movie[]
     }
 }
 
 const MainContainer = () => {
-    const movies = useSelector((store: RootMovies) => store.movies?.nowPlayingMovies);
+    const movies = useSelector((store: RootMovies) => store.movies?.popularMovies);
 
     if (!movies) return null;
 
