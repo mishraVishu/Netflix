@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
+import { useSelector } from "react-redux";
 
 interface UseMovieTrailerProps {
     movieId: number,
@@ -7,6 +8,8 @@ interface UseMovieTrailerProps {
 }
 
 const useMovieTrailer = ({movieId, setTrailerId}: UseMovieTrailerProps) => {
+    const trailer = useSelector((store: { movies?: { tralerVideo?: any } }) => store?.movies?.tralerVideo)
+
     const getMovieVideo = async () => {
         const data = await fetch("https://api.themoviedb.org/3/movie/" + movieId + "/videos", API_OPTIONS);
         const json = await data.json();
@@ -17,7 +20,9 @@ const useMovieTrailer = ({movieId, setTrailerId}: UseMovieTrailerProps) => {
     };
 
     useEffect(() => {
-        getMovieVideo();
+        if (!trailer) {
+            getMovieVideo();
+        }
     }, []);
 
 }
